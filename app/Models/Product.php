@@ -13,6 +13,10 @@ class Product extends Model
 
     public function categories(): BelongsToMany
     {
-        return $this->belongsToMany(Category::class);
+        // return $this->belongsToMany(Category::class)->withPivot('added_at');
+        return $this->belongsToMany(Category::class)
+            ->withTimestamps()
+            ->withPivot('visible')
+            ->wherePivot('visible', true);
     }
 }

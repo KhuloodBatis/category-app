@@ -15,7 +15,7 @@ class CategoryController extends Controller
         //return view('category.show', compact('category'));
 
 
-        $products = $category->products()->orderBy('created_at', 'desc')->paginate(1);
+        $products = $category->products()->orderBy('created_at', 'desc')->paginate(2);
         return view('category.show', compact('category', 'products'));
     }
 }
